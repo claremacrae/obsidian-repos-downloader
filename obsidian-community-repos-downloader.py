@@ -31,6 +31,17 @@ class DownloaderOptions:
                             help='The directory where repos will be downloaded. Must already exist. '
                                  'Defaults to the current working directory.'
                             )
+
+        parser.add_argument('--group-by-user', dest='group_by_user', action='store_true',
+                            help='Put each repository in a sub-folder named for the GitHub user. '
+                                 'For example, the plugin "https://github.com/phibr0/obsidian-tabout" would be placed '
+                                 'in "plugins/phibr0/obsidian-tabout"')
+        parser.add_argument('--no-group-by-user', dest='group_by_user-by-user', action='store_false',
+                            help='Put each repository in the same folder, prefixed by the user name. '
+                                 'For example, the plugin "https://github.com/phibr0/obsidian-tabout" would be placed '
+                                 'in "plugins/phibr0-obsidian-tabout"')
+        parser.set_defaults(group_by_user=False)
+
         return parser
 
     def parse_args(self, argv):
@@ -41,6 +52,7 @@ class DownloaderOptions:
 
     def repo_output_directory(self, user):
         return user
+
 
 class Downloader:
     def __init__(self, options):
