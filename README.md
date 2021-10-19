@@ -70,7 +70,7 @@ Running `obsidian-repos-downloader.py --help` gives this output:
 
 <!-- snippet: usage.txt -->
 ```txt
-usage: obsidian-repos-downloader.py [-h] [-o OUTPUT_DIRECTORY] [-l LIMIT]
+usage: obsidian-repos-downloader.py [-h] [-o OUTPUT_DIRECTORY] [-l LIMIT] [-n]
                                     [-t [{plugins,themes,all}]]
                                     [--group-by-user] [--no-group-by-user]
 
@@ -88,6 +88,10 @@ optional arguments:
                         be downloaded. This is useful when testing the script.
                         0 (zero) means "no limit". Note: the count currently
                         includes any repos already downloaded.(default: 0)
+  -n, --dry-run         Print out the commands to be executed, but do no run
+                        them. This is useful for testing. Note: it does not
+                        print the directory-creation commands, just the git
+                        ones
   -t [{plugins,themes,all}], --type [{plugins,themes,all}]
                         The type of repositories to download: plugins, themes
                         or both. (default: all)

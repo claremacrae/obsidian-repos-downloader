@@ -34,6 +34,12 @@ class DownloaderOptions:
                                  'Note: the count currently includes any repos already downloaded.'
                                  '(default: %(default)s)')
 
+        parser.add_argument('-n', '--dry-run', action="store_true",
+                            help='Print out the commands to be executed, but do no run them. '
+                                 'This is useful for testing. '
+                                 'Note: it does not print the directory-creation commands, '
+                                 'just the git ones')
+
         parser.add_argument('-t', '--type',
                             default='all',
                             const='all',
@@ -60,6 +66,9 @@ class DownloaderOptions:
 
     def limit(self):
         return self.args.limit
+
+    def dry_run(self):
+        return self.args.dry_run
 
     def need_to_download_type(self, type):
         return self.args.type in ["all", type]
@@ -124,11 +133,17 @@ class Downloader:
         with use_directory(directory_for_repo, create_if_missing=True):
             repo_output_name = self.options.repo_output_name(user, repo_name)
             if not os.path.isdir(repo_output_name):
-                print(f"cloning {repo}")
                 command = self.get_download_command(repo, repo_output_name)
-                subprocess.run(command, shell=True, check=True)
+                if self.options.dry_run():
+                    self.log_dry_run(command)
+                else:
+                    print(f"cloning {repo}")
+                    subprocess.run(command, shell=True, check=True)
             else:
                 print(f"{repo_output_name} already exists")
+
+    def log_dry_run(self, command):
+        print(f'Dry run mode: {command}')
 
     def get_download_command(self, repo, repo_output_name):
         url = f'https://github.com/{repo}'
