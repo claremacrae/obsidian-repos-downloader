@@ -41,13 +41,6 @@ def process_released_plugins():
         clone_repos(plugin_list)
 
 
-def process_released_themes():
-    print("-----\nProcessing themes....\n")
-    with use_directory("css-themes", create_if_missing=True):
-        theme_list = get_json_from_github(THEMES_JSON_FILE)
-        clone_repos(theme_list)
-
-
 class DownloaderOptions:
     def __init__(self):
         self.parser = self.make_parser()
@@ -82,7 +75,10 @@ class Downloader:
             self.process_released_themes()
 
     def process_released_themes(self):
-        process_released_themes()
+        print("-----\nProcessing themes....\n")
+        with use_directory("css-themes", create_if_missing=True):
+            theme_list = get_json_from_github(THEMES_JSON_FILE)
+            clone_repos(theme_list)
 
 
 def main(argv=sys.argv[1:]):
