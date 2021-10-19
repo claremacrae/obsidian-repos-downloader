@@ -38,6 +38,14 @@ class DownloaderOptions:
                                  'The default is 0, meaning no limit. '
                                  'Note: the count currently includes any repos already downloaded.')
 
+        parser.add_argument('--type',
+                            default='all',
+                            const='all',
+                            nargs='?',
+                            choices=['plugins', 'themes', 'all'],
+                            help='The type of repositories to download: plugins, themes or both. '
+                                 '(default: %(default)s)')
+
         parser.add_argument('--group-by-user', dest='group_by_user', action='store_true',
                             help='Put each repository in a sub-folder named for the GitHub user. '
                                  'For example, the plugin "https://github.com/phibr0/obsidian-tabout" would be placed '
@@ -56,6 +64,12 @@ class DownloaderOptions:
 
     def limit(self):
         return self.args.limit
+
+    def need_to_download_plugins(self):
+        return self.args.type in ["all", "plugins"]
+
+    def need_to_download_themes(self):
+        return self.args.type in ["all", "themes"]
 
     def root_output_directory(self):
         return self.args.output_directory
@@ -84,12 +98,18 @@ class Downloader:
             self.process_released_themes()
 
     def process_released_plugins(self):
+        if not self.options.need_to_download_plugins():
+            return
+
         print("-----\nProcessing plugins....\n")
         with use_directory("plugins", create_if_missing=True):
             plugin_list = get_json_from_github(PLUGINS_JSON_FILE)
             self.clone_repos(plugin_list)
 
     def process_released_themes(self):
+        if not self.options.need_to_download_themes():
+            return
+
         print("-----\nProcessing themes....\n")
         with use_directory("css-themes", create_if_missing=True):
             theme_list = get_json_from_github(THEMES_JSON_FILE)
