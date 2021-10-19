@@ -70,7 +70,8 @@ class DownloaderOptions:
         return self.need_to_download_type(type)
 
     def need_to_download_themes(self):
-        return self.args.type in ["all", "themes"]
+        type = "themes"
+        return self.need_to_download_type(type)
 
     def need_to_download_type(self, type):
         return self.args.type in ["all", type]
