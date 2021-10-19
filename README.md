@@ -71,7 +71,7 @@ Running `obsidian-repos-downloader.py --help` gives this output:
 <!-- snippet: usage.txt -->
 ```txt
 usage: obsidian-repos-downloader.py [-h] [-o OUTPUT_DIRECTORY] [-l LIMIT]
-                                    [--type [{plugins,themes,all}]]
+                                    [-t [{plugins,themes,all}]]
                                     [--group-by-user] [--no-group-by-user]
 
 Clone repos included in the obsidian-releases repo, to provide a body of
@@ -88,7 +88,7 @@ optional arguments:
                         be downloaded. This is useful when testing the script.
                         0 (zero) means "no limit". Note: the count currently
                         includes any repos already downloaded.(default: 0)
-  --type [{plugins,themes,all}]
+  -t [{plugins,themes,all}], --type [{plugins,themes,all}]
                         The type of repositories to download: plugins, themes
                         or both. (default: all)
   --group-by-user       Put each repository in a sub-folder named for the

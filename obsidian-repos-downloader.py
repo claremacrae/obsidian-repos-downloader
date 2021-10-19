@@ -34,7 +34,7 @@ class DownloaderOptions:
                                  'Note: the count currently includes any repos already downloaded.'
                                  '(default: %(default)s)')
 
-        parser.add_argument('--type',
+        parser.add_argument('-t', '--type',
                             default='all',
                             const='all',
                             nargs='?',
