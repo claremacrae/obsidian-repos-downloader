@@ -40,11 +40,16 @@ def clone_repo(plugin):
             print(f"{repo} already exists")
 
 
+def clone_repos(repo_list):
+    for plugin in repo_list:
+        clone_repo(plugin)
+
+
 def process_released_plugins(overwrite=False):
     with use_directory("plugins", create_if_missing=True):
         plugin_list = get_json_from_github(PLUGINS_JSON_FILE)
-        for plugin in plugin_list:
-            clone_repo(plugin)
+        repo_list = plugin_list
+        clone_repos(repo_list)
 
 
 def process_released_themes(overwrite=False):
