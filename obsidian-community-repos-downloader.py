@@ -57,6 +57,12 @@ class DownloaderOptions:
         else:
             return '.'
 
+    def repo_output_name(self, user, repo):
+        if self.args.group_by_user:
+            return repo
+        else:
+            # Prefix with username, in case there are any duplicated repo names
+            return f"{user}-{repo}"
 
 class Downloader:
     def __init__(self, options):
@@ -93,13 +99,14 @@ class Downloader:
         with use_directory(directory_for_repo, create_if_missing=True):
             if not os.path.isdir(repo_name):
                 print(f"cloning {repo}")
-                command = self.get_download_command(repo)
+                command = self.get_download_command(repo, user, repo_name)
                 subprocess.run(command, shell=True, check=True)
             else:
                 print(f"{repo} already exists")
 
-    def get_download_command(self, repo):
-        command = f"git clone https://github.com/{repo}.git"
+    def get_download_command(self, repo, user, repo_name):
+        repo_output_name = self.options.repo_output_name(user, repo_name)
+        command = f"git clone https://github.com/{repo}.git {repo_output_name}"
         return command
 
 
