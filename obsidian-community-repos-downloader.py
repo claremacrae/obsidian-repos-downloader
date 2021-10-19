@@ -50,8 +50,11 @@ def process_released_themes():
 
 class DownloaderOptions:
     def __init__(self):
-        self.parser = make_arg_parser()
+        self.parser = self.make_parser()
         self.args = None
+
+    def make_parser(self):
+        return make_arg_parser()
 
     def parse_args(self, argv):
         self.args = self.parser.parse_args(argv)
