@@ -39,6 +39,8 @@ class DownloaderOptions:
     def root_output_directory(self):
         return self.args.output_directory
 
+    def repo_output_directory(self, user):
+        return user
 
 class Downloader:
     def __init__(self, options):
@@ -70,7 +72,8 @@ class Downloader:
         repo = plugin.get("repo")
         branch = plugin.get("branch", "master")
         user, repo_name = repo.split("/")
-        with use_directory(user, create_if_missing=True):
+        directory_for_repo = self.options.repo_output_directory(user)
+        with use_directory(directory_for_repo, create_if_missing=True):
             if not os.path.isdir(repo_name):
                 print(f"cloning {repo}")
                 command = f"git clone https://github.com/{repo}.git"
