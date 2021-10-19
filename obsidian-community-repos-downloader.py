@@ -134,7 +134,7 @@ class Downloader:
         return command
 
 
-def main(argv=sys.argv[1:]):
+def download_repos(argv=sys.argv[1:]):
     options = DownloaderOptions()
     options.parse_args(argv)
 
@@ -143,4 +143,4 @@ def main(argv=sys.argv[1:]):
 
 
 if __name__ == "__main__":
-    main()
+    download_repos()
