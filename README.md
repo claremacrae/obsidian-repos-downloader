@@ -13,7 +13,7 @@
     * [Usage - all the arguments](#usage---all-the-arguments)
   * [Output Directories](#output-directories)
     * [Flatter Structure](#flatter-structure)
-    * [Grouped Structure - repos grouped by user name](#grouped-structure---repos-grouped-by-user-name)
+    * [Grouped by User name](#grouped-by-user-name)
   * [Likely Questions](#likely-questions)
     * [How do I update repos I have already downloaded?](#how-do-i-update-repos-i-have-already-downloaded)
     * [What order are plugins and themes downloaded in?](#what-order-are-plugins-and-themes-downloaded-in)
@@ -145,7 +145,7 @@ themes
 
 
 
-### Grouped Structure - repos grouped by user name
+### Grouped by User name
 
 When the argument `--group-by-user` is supplied, all the downloaded repos are placed in sub-directories
 named with the username of the developer who wrote them.
