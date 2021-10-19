@@ -110,7 +110,7 @@ class Downloader:
             return
 
         print("-----\nProcessing themes....\n")
-        with use_directory("css-themes", create_if_missing=True):
+        with use_directory("themes", create_if_missing=True):
             theme_list = get_json_from_github(json_file)
             self.clone_repos(theme_list)
 
