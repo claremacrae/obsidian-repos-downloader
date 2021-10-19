@@ -24,7 +24,8 @@ optional arguments:
   -h, --help            show this help message and exit
   -o OUTPUT_DIRECTORY, --output_directory OUTPUT_DIRECTORY
                         The directory where repos will be downloaded. Must
-                        already exist.
+                        already exist. Defaults to the current working
+                        directory.
 ```
-<sup><a href='/tests/usage.txt#L1-L10' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/usage.txt#L1-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
