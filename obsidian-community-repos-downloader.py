@@ -30,11 +30,6 @@ def clone_repo(plugin):
             print(f"{repo} already exists")
 
 
-def clone_repos(repo_list):
-    for plugin in repo_list:
-        clone_repo(plugin)
-
-
 class DownloaderOptions:
     def __init__(self):
         self.parser = self.make_parser()
@@ -71,13 +66,17 @@ class Downloader:
     def process_released_plugins(self):
         with use_directory("plugins", create_if_missing=True):
             plugin_list = get_json_from_github(PLUGINS_JSON_FILE)
-            clone_repos(plugin_list)
+            self.clone_repos(plugin_list)
 
     def process_released_themes(self):
         print("-----\nProcessing themes....\n")
         with use_directory("css-themes", create_if_missing=True):
             theme_list = get_json_from_github(THEMES_JSON_FILE)
-            clone_repos(theme_list)
+            self.clone_repos(theme_list)
+
+    def clone_repos(self, plugin_list):
+        for plugin in plugin_list:
+            clone_repo(plugin)
 
 
 def main(argv=sys.argv[1:]):
