@@ -94,25 +94,25 @@ class Downloader:
     def download(self):
         with use_directory(self.options.root_output_directory(), create_if_missing=False):
             print(f"Working directory: {os.getcwd()}")
-            self.process_released_plugins()
-            self.process_released_themes()
+            self.process_released_plugins(PLUGINS_JSON_FILE)
+            self.process_released_themes(THEMES_JSON_FILE)
 
-    def process_released_plugins(self):
+    def process_released_plugins(self, json_file):
         if not self.options.need_to_download_plugins():
             return
 
         print("-----\nProcessing plugins....\n")
         with use_directory("plugins", create_if_missing=True):
-            plugin_list = get_json_from_github(PLUGINS_JSON_FILE)
+            plugin_list = get_json_from_github(json_file)
             self.clone_repos(plugin_list)
 
-    def process_released_themes(self):
+    def process_released_themes(self, json_file):
         if not self.options.need_to_download_themes():
             return
 
         print("-----\nProcessing themes....\n")
         with use_directory("css-themes", create_if_missing=True):
-            theme_list = get_json_from_github(THEMES_JSON_FILE)
+            theme_list = get_json_from_github(json_file)
             self.clone_repos(theme_list)
 
     def clone_repos(self, plugin_list):
