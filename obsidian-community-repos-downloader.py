@@ -99,8 +99,8 @@ class Downloader:
         if not self.options.need_to_download_type(type):
             return
 
-        print("-----\nProcessing plugins....\n")
-        with use_directory("plugins", create_if_missing=True):
+        print(f"-----\nProcessing {type}....\n")
+        with use_directory(type, create_if_missing=True):
             plugin_list = get_json_from_github(json_file)
             self.clone_repos(plugin_list)
 
@@ -109,8 +109,8 @@ class Downloader:
         if not self.options.need_to_download_type(type):
             return
 
-        print("-----\nProcessing themes....\n")
-        with use_directory("themes", create_if_missing=True):
+        print(f"-----\nProcessing {type}....\n")
+        with use_directory(type, create_if_missing=True):
             theme_list = get_json_from_github(json_file)
             self.clone_repos(theme_list)
 
