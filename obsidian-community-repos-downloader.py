@@ -32,6 +32,12 @@ class DownloaderOptions:
                                  'Defaults to the current working directory.'
                             )
 
+        parser.add_argument('-l', '--limit', type=int, default=0,
+                            help='Limit the number of plugin and theme repos that will be downloaded. '
+                                 'This is useful when testing the script. '
+                                 'The default is 0, meaning no limit. '
+                                 'Note: the count currently includes any repos already downloaded.')
+
         parser.add_argument('--group-by-user', dest='group_by_user', action='store_true',
                             help='Put each repository in a sub-folder named for the GitHub user. '
                                  'For example, the plugin "https://github.com/phibr0/obsidian-tabout" would be placed '
@@ -47,6 +53,9 @@ class DownloaderOptions:
 
     def parse_args(self, argv):
         self.args = self.parser.parse_args(argv)
+
+    def limit(self):
+        return self.args.limit
 
     def root_output_directory(self):
         return self.args.output_directory
@@ -88,8 +97,13 @@ class Downloader:
 
     def clone_repos(self, plugin_list):
         count = 0
+        limit = self.options.limit()
         for plugin in plugin_list:
             self.clone_repo(plugin)
+            count += 1
+            if limit > 0 and count >= limit:
+                print("Maximum number of new repos exceeded. Stopping.")
+                return
 
     def clone_repo(self, plugin):
         repo = plugin.get("repo")
@@ -103,7 +117,7 @@ class Downloader:
                 command = self.get_download_command(repo, user, repo_name, repo_output_name)
                 subprocess.run(command, shell=True, check=True)
             else:
-                print(f"{repo} already exists")
+                print(f"{repo_output_name} already exists")
 
     def get_download_command(self, repo, user, repo_name, repo_output_name):
         command = f"git clone https://github.com/{repo}.git {repo_output_name}"
