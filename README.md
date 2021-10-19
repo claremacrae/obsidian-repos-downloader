@@ -11,6 +11,9 @@
   * [Run](#run)
     * [Getting Started](#getting-started)
     * [Usage - all the arguments](#usage---all-the-arguments)
+  * [Output Directories](#output-directories)
+    * [Default Structure - all repos of each type at same level](#default-structure---all-repos-of-each-type-at-same-level)
+    * [Grouped Structure - repos grouped by user name](#grouped-structure---repos-grouped-by-user-name)
   * [Likely Questions](#likely-questions)
   * [Alternatives](#alternatives)<!-- endToc -->
 
@@ -98,6 +101,65 @@ optional arguments:
                         placed in "plugins/phibr0-obsidian-tabout"
 ```
 <sup><a href='/tests/usage.txt#L1-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage.txt' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+## Output Directories
+
+### Default Structure - all repos of each type at same level
+
+```bash
+obsidian-repos-downloader.py  --limit 4
+```
+
+<!-- snippet: tree-output-ungrouped.txt -->
+<a id='snippet-tree-output-ungrouped.txt'></a>
+```txt
+plugins
+├── argenos-hotkeysplus-obsidian
+├── argenos-nldates-obsidian
+├── denolehov-obsidian-git
+└── denolehov-obsidian-url-into-selection
+themes
+├── cotemaxime-obsidian-amethyst
+├── insanum-obsidian_gruvbox
+├── insanum-obsidian_nord
+└── kognise-obsidian-atom
+
+8 directories
+```
+<sup><a href='/tests/tree-output-ungrouped.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-tree-output-ungrouped.txt' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+
+### Grouped Structure - repos grouped by user name
+
+```bash
+obsidian-repos-downloader.py  --limit 4 --group-by-user
+```
+
+<!-- snippet: tree-output-grouped.txt -->
+<a id='snippet-tree-output-grouped.txt'></a>
+```txt
+plugins
+├── argenos
+│   ├── hotkeysplus-obsidian
+│   └── nldates-obsidian
+└── denolehov
+    ├── obsidian-git
+    └── obsidian-url-into-selection
+themes
+├── cotemaxime
+│   └── obsidian-amethyst
+├── insanum
+│   ├── obsidian_gruvbox
+│   └── obsidian_nord
+└── kognise
+    └── obsidian-atom
+
+13 directories
+```
+<sup><a href='/tests/tree-output-grouped.txt#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-tree-output-grouped.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ## Likely Questions

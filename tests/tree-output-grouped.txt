@@ -2,16 +2,9 @@ plugins
 ├── argenos
 │   ├── hotkeysplus-obsidian
 │   └── nldates-obsidian
-│       ├── assets
-│       └── src
-│           ├── modals
-│           └── suggest
 └── denolehov
     ├── obsidian-git
-    │   └── src
-    │       └── modals
     └── obsidian-url-into-selection
-        └── src
 themes
 ├── cotemaxime
 │   └── obsidian-amethyst
@@ -21,4 +14,4 @@ themes
 └── kognise
     └── obsidian-atom
 
-20 directories
+13 directories
