@@ -65,10 +65,6 @@ class DownloaderOptions:
     def limit(self):
         return self.args.limit
 
-    def need_to_download_plugins(self):
-        type = "plugins"
-        return self.need_to_download_type(type)
-
     def need_to_download_themes(self):
         type = "themes"
         return self.need_to_download_type(type)
@@ -103,7 +99,8 @@ class Downloader:
             self.process_released_themes(THEMES_JSON_FILE)
 
     def process_released_plugins(self, json_file):
-        if not self.options.need_to_download_plugins():
+        type = "plugins"
+        if not self.options.need_to_download_type(type):
             return
 
         print("-----\nProcessing plugins....\n")
