@@ -8,10 +8,7 @@
   * [Requirements](#requirements)
   * [Setup](#setup)
   * [Run](#run)
-  * [Alternatives](#alternatives)
-  * [Maintenance notes](#maintenance-notes)
-    * [Automated updating the table of contents](#automated-updating-the-table-of-contents)
-    * [Almost-automated updating of usage](#almost-automated-updating-of-usage)<!-- endToc -->
+  * [Alternatives](#alternatives)<!-- endToc -->
 
 [![on-push-do-doco](https://github.com/claremacrae/obsidian-community-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-community-repos-downloader/actions/workflows/updateMarkdown.yml)
 
@@ -86,25 +83,3 @@ optional arguments:
     - Written in bash, and a number of other freely-downloadable tools
     - You use a console GUI each run, to search and control which repos to download  
     - Downloads plugins only
-
----
-
-## Maintenance notes
-
-### Automated updating the table of contents
-
-The table of contents is updated automatically by a GitHub Action, on every push to GitHub.
-
-### Almost-automated updating of usage 
-
-The above usage is updated automatically, on push, whenever `tests/usage.txt` is changed.
-
-To update `tests/usage.txt:
-
-```bash
-# 1. Update tests/usage.txt
-cd tests
-./update_usage.sh
-# 2. Commit update usage.txt
-# 3. Push to github - a GitHub Action will then update the usage text in this README
-```
