@@ -71,8 +71,11 @@ class Downloader:
     def download(self):
         with use_directory(self.options.root_output_directory(), create_if_missing=False):
             print(f"Working directory: {os.getcwd()}")
-            process_released_plugins()
+            self.process_released_plugins()
             self.process_released_themes()
+
+    def process_released_plugins(self):
+        process_released_plugins()
 
     def process_released_themes(self):
         print("-----\nProcessing themes....\n")
