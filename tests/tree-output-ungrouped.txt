@@ -1,0 +1,19 @@
+plugins
+├── argenos-hotkeysplus-obsidian
+├── argenos-nldates-obsidian
+│   ├── assets
+│   └── src
+│       ├── modals
+│       └── suggest
+├── denolehov-obsidian-git
+│   └── src
+│       └── modals
+└── denolehov-obsidian-url-into-selection
+    └── src
+themes
+├── cotemaxime-obsidian-amethyst
+├── insanum-obsidian_gruvbox
+├── insanum-obsidian_nord
+└── kognise-obsidian-atom
+
+15 directories
