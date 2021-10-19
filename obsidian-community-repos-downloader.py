@@ -51,6 +51,7 @@ class Downloader:
             self.process_released_themes()
 
     def process_released_plugins(self):
+        print("-----\nProcessing plugins....\n")
         with use_directory("plugins", create_if_missing=True):
             plugin_list = get_json_from_github(PLUGINS_JSON_FILE)
             self.clone_repos(plugin_list)
