@@ -54,13 +54,13 @@ optional arguments:
   -h, --help            show this help message and exit
   -o OUTPUT_DIRECTORY, --output_directory OUTPUT_DIRECTORY
                         The directory where repos will be downloaded. Must
-                        already exist. Defaults to the current working
-                        directory.
+                        already exist. (default: . which means "current
+                        working directory")
   -l LIMIT, --limit LIMIT
                         Limit the number of plugin and theme repos that will
                         be downloaded. This is useful when testing the script.
-                        The default is 0, meaning no limit. Note: the count
-                        currently includes any repos already downloaded.
+                        0 (zero) means "no limit". Note: the count currently
+                        includes any repos already downloaded.(default: 0)
   --type [{plugins,themes,all}]
                         The type of repositories to download: plugins, themes
                         or both. (default: all)

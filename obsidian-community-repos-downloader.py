@@ -24,14 +24,15 @@ class DownloaderOptions:
         )
         parser.add_argument('-o', '--output_directory', default='.', type=readable_dir,
                             help='The directory where repos will be downloaded. Must already exist. '
-                                 'Defaults to the current working directory.'
+                                 '(default: %(default)s which means "current working directory")'
                             )
 
         parser.add_argument('-l', '--limit', type=int, default=0,
                             help='Limit the number of plugin and theme repos that will be downloaded. '
                                  'This is useful when testing the script. '
-                                 'The default is 0, meaning no limit. '
-                                 'Note: the count currently includes any repos already downloaded.')
+                                 '0 (zero) means "no limit". '
+                                 'Note: the count currently includes any repos already downloaded.'
+                                 '(default: %(default)s)')
 
         parser.add_argument('--type',
                             default='all',
