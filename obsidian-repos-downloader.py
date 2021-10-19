@@ -125,12 +125,12 @@ class Downloader:
             repo_output_name = self.options.repo_output_name(user, repo_name)
             if not os.path.isdir(repo_output_name):
                 print(f"cloning {repo}")
-                command = self.get_download_command(repo, user, repo_name, repo_output_name)
+                command = self.get_download_command(repo, repo_output_name)
                 subprocess.run(command, shell=True, check=True)
             else:
                 print(f"{repo_output_name} already exists")
 
-    def get_download_command(self, repo, user, repo_name, repo_output_name):
+    def get_download_command(self, repo, repo_output_name):
         url = f'https://github.com/{repo}'
         print(url)
         command = f"git clone {url}.git {repo_output_name}"
