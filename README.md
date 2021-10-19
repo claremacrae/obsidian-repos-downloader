@@ -1,4 +1,4 @@
-# obsidian-community-repositories-downloader
+# obsidian-community-repos-downloader
 
 <!-- toc -->
 ## Contents
@@ -11,7 +11,7 @@
 Download every approved Obsidian.md community Plugin and Theme - to read and search the source code and learn from the
 community.
 
-[![on-push-do-doco](https://github.com/claremacrae/obsidian-community-repositories-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-community-repositories-downloader/actions/workflows/updateMarkdown.yml)
+[![on-push-do-doco](https://github.com/claremacrae/obsidian-community-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-community-repos-downloader/actions/workflows/updateMarkdown.yml)
 
 ## Usage
 
