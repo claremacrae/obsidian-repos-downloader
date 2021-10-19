@@ -1,12 +1,12 @@
 plugins
-├── argenos-hotkeysplus-obsidian
-├── argenos-nldates-obsidian
-├── denolehov-obsidian-git
-└── denolehov-obsidian-url-into-selection
+├── agathauy-wikilinks-to-mdlinks-obsidian
+├── aidenlx-alx-folder-note
+├── aidenlx-better-fn
+└── aidenlx-cm-chs-patch
 themes
-├── cotemaxime-obsidian-amethyst
-├── insanum-obsidian_gruvbox
-├── insanum-obsidian_nord
-└── kognise-obsidian-atom
+├── ArtexJay-Obsidian-CyberGlow
+├── auroral-ui-aurora-obsidian-md
+├── bcdavasconcelos-Obsidian-Ayu
+└── bcdavasconcelos-Obsidian-Ayu_Mirage
 
 8 directories

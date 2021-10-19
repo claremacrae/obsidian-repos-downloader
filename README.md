@@ -27,6 +27,12 @@ Clone every approved Obsidian.md community Plugin and Theme - to read and search
 
 This is a Python3 script to download a local copy of all the [published community Obsidian plugins and themes](https://github.com/obsidianmd/obsidian-releases), to be used as a large body of example code.
 
+It inspects these files, and then downloads (clones) all the repos listed in them:
+
+- [community-css-themes.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-css-themes.json)
+- [community-plugins.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-plugins.json)
+
+
 ## Why?
 
 I cannot put it better than the author of the similar project [luckman212/**obsidian-plugin-downloader**](https://github.com/luckman212/obsidian-plugin-downloader):
@@ -129,15 +135,15 @@ obsidian-repos-downloader.py  --limit 4
 <!-- snippet: tree-output-ungrouped.txt -->
 ```txt
 plugins
-├── argenos-hotkeysplus-obsidian
-├── argenos-nldates-obsidian
-├── denolehov-obsidian-git
-└── denolehov-obsidian-url-into-selection
+├── agathauy-wikilinks-to-mdlinks-obsidian
+├── aidenlx-alx-folder-note
+├── aidenlx-better-fn
+└── aidenlx-cm-chs-patch
 themes
-├── cotemaxime-obsidian-amethyst
-├── insanum-obsidian_gruvbox
-├── insanum-obsidian_nord
-└── kognise-obsidian-atom
+├── ArtexJay-Obsidian-CyberGlow
+├── auroral-ui-aurora-obsidian-md
+├── bcdavasconcelos-Obsidian-Ayu
+└── bcdavasconcelos-Obsidian-Ayu_Mirage
 
 8 directories
 ```
@@ -161,20 +167,20 @@ obsidian-repos-downloader.py  --limit 4 --group-by-user
 <!-- snippet: tree-output-grouped.txt -->
 ```txt
 plugins
-├── argenos
-│   ├── hotkeysplus-obsidian
-│   └── nldates-obsidian
-└── denolehov
-    ├── obsidian-git
-    └── obsidian-url-into-selection
+├── agathauy
+│   └── wikilinks-to-mdlinks-obsidian
+└── aidenlx
+    ├── alx-folder-note
+    ├── better-fn
+    └── cm-chs-patch
 themes
-├── cotemaxime
-│   └── obsidian-amethyst
-├── insanum
-│   ├── obsidian_gruvbox
-│   └── obsidian_nord
-└── kognise
-    └── obsidian-atom
+├── ArtexJay
+│   └── Obsidian-CyberGlow
+├── auroral-ui
+│   └── aurora-obsidian-md
+└── bcdavasconcelos
+    ├── Obsidian-Ayu
+    └── Obsidian-Ayu_Mirage
 
 13 directories
 ```
@@ -192,10 +198,8 @@ You can do this via `git pull`, although you would need to script the running of
 
 ### What order are plugins and themes downloaded in?
 
-They are downloaded in the order they appear in the files in the [obsidianmd/obsidian-releases](https://github.com/obsidianmd/obsidian-releases) repository, which is roughly in the order they were released:
-
-- [community-css-themes.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-css-themes.json)
-- [community-plugins.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-plugins.json)
+They are downloaded in case-insensitive alphabetical order of the repository's GitHub URL, so effectively in order
+of user name and then repo name.
 
 ## Alternatives
 
