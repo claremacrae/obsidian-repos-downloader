@@ -19,7 +19,9 @@ community.
 <a id='snippet-usage.txt'></a>
 ```txt
 usage: obsidian-community-repos-downloader.py [-h] [-o OUTPUT_DIRECTORY]
-                                              [-l LIMIT] [--group-by-user]
+                                              [-l LIMIT]
+                                              [--type [{plugins,themes,all}]]
+                                              [--group-by-user]
                                               [--no-group-by-user]
 
 Clone repos included in the obsidian-releases repo, to provide a body of
@@ -36,6 +38,9 @@ optional arguments:
                         be downloaded. This is useful when testing the script.
                         The default is 0, meaning no limit. Note: the count
                         currently includes any repos already downloaded.
+  --type [{plugins,themes,all}]
+                        The type of repositories to download: plugins, themes
+                        or both. (default: all)
   --group-by-user       Put each repository in a sub-folder named for the
                         GitHub user. For example, the plugin
                         "https://github.com/phibr0/obsidian-tabout" would be
@@ -46,7 +51,7 @@ optional arguments:
                         "https://github.com/phibr0/obsidian-tabout" would be
                         placed in "plugins/phibr0-obsidian-tabout"
 ```
-<sup><a href='/tests/usage.txt#L1-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/usage.txt#L1-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ---
