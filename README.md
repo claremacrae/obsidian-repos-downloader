@@ -19,7 +19,7 @@
 
 Clone every approved Obsidian.md community Plugin and Theme - to read and search the source code and learn from the community.
 
-This is a Python script to download a local copy of all the [published community Obsidian plugins and themes](https://github.com/obsidianmd/obsidian-releases), to be used as a large body of example code.
+This is a Python3 script to download a local copy of all the [published community Obsidian plugins and themes](https://github.com/obsidianmd/obsidian-releases), to be used as a large body of example code.
 
 ## Why?
 
