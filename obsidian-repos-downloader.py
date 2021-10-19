@@ -133,7 +133,7 @@ class Downloader:
     def get_download_command(self, repo, repo_output_name):
         url = f'https://github.com/{repo}'
         print(url)
-        command = f"git clone {url}.git {repo_output_name}"
+        command = f"git clone --quiet {url}.git {repo_output_name}"
         return command
 
 
