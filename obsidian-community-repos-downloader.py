@@ -5,11 +5,6 @@ import sys
 import argparse
 import subprocess
 
-# TODO Control which of these:
-#       https://github.com/username/projectname.git
-#  vs
-#           git@github.com:username/projectname.git
-
 from utils import (
     get_json_from_github
 )
@@ -83,6 +78,7 @@ class DownloaderOptions:
         else:
             # Prefix with username, in case there are any duplicated repo names
             return f"{user}-{repo}"
+
 
 class Downloader:
     def __init__(self, options):
