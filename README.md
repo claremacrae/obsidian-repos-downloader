@@ -1,4 +1,4 @@
-# obsidian-community-repos-downloader
+# obsidian-repos-downloader
 
 <!-- toc -->
 ## Contents
@@ -11,7 +11,7 @@
   * [Likely Questions](#likely-questions)
   * [Alternatives](#alternatives)<!-- endToc -->
 
-[![on-push-do-doco](https://github.com/claremacrae/obsidian-community-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-community-repos-downloader/actions/workflows/updateMarkdown.yml)
+[![on-push-do-doco](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml)
 
 ## What?
 
@@ -32,7 +32,7 @@ I cannot put it better than the author of the similar project [luckman212/**obsi
 ## Setup
 
 1. Clone or download this repo
-2. Run the script `obsidian-community-repos-downloader.py`
+2. Run the script `obsidian-repos-downloader.py`
 
 ## Run
 
