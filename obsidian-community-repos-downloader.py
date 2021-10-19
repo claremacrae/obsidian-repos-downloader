@@ -93,10 +93,14 @@ class Downloader:
         with use_directory(directory_for_repo, create_if_missing=True):
             if not os.path.isdir(repo_name):
                 print(f"cloning {repo}")
-                command = f"git clone https://github.com/{repo}.git"
+                command = self.get_download_command(repo)
                 subprocess.run(command, shell=True, check=True)
             else:
                 print(f"{repo} already exists")
+
+    def get_download_command(self, repo):
+        command = f"git clone https://github.com/{repo}.git"
+        return command
 
 
 def main(argv=sys.argv[1:]):
