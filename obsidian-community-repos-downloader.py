@@ -54,7 +54,15 @@ class DownloaderOptions:
         self.args = None
 
     def make_parser(self):
-        return make_arg_parser()
+        parser = argparse.ArgumentParser(
+            description="Clone repos included in the obsidian-releases repo, "
+                        "to provide a body of example plugins and CSS themes."
+        )
+        parser.add_argument('-o', '--output_directory', default='.', type=readable_dir,
+                            help='The directory where repos will be downloaded. Must already exist. '
+                                 'Defaults to the current working directory.'
+                            )
+        return parser
 
     def parse_args(self, argv):
         self.args = self.parser.parse_args(argv)
@@ -72,18 +80,6 @@ class Downloader:
             print(f"Working directory: {os.getcwd()}")
             process_released_plugins()
             process_released_themes()
-
-
-def make_arg_parser():
-    parser = argparse.ArgumentParser(
-        description="Clone repos included in the obsidian-releases repo, "
-                    "to provide a body of example plugins and CSS themes."
-    )
-    parser.add_argument('-o', '--output_directory', default='.', type=readable_dir,
-                        help='The directory where repos will be downloaded. Must already exist. '
-                             'Defaults to the current working directory.'
-                        )
-    return parser
 
 
 def main(argv=sys.argv[1:]):
