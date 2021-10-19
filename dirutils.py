@@ -1,3 +1,4 @@
+import argparse
 import os
 
 # Comments for review:
@@ -35,3 +36,13 @@ def use_directory(dir, create_if_missing):
     if create_if_missing:
         os.makedirs(dir, exist_ok=True)
     return PushPopDirectory(dir)
+
+
+# From https://stackoverflow.com/q/11415570/104370
+def readable_dir(prospective_dir):
+    if not os.path.isdir(prospective_dir):
+        raise argparse.ArgumentTypeError("readable_dir:{0} is not a valid path".format(prospective_dir))
+    if os.access(prospective_dir, os.R_OK):
+        return prospective_dir
+    else:
+        raise argparse.ArgumentTypeError("readable_dir:{0} is not a readable dir".format(prospective_dir))

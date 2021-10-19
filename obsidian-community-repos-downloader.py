@@ -14,17 +14,7 @@ from utils import (
     get_json_from_github
 )
 from utils import PLUGINS_JSON_FILE, THEMES_JSON_FILE
-from dirutils import use_directory
-
-
-# From https://stackoverflow.com/q/11415570/104370
-def readable_dir(prospective_dir):
-    if not os.path.isdir(prospective_dir):
-        raise argparse.ArgumentTypeError("readable_dir:{0} is not a valid path".format(prospective_dir))
-    if os.access(prospective_dir, os.R_OK):
-        return prospective_dir
-    else:
-        raise argparse.ArgumentTypeError("readable_dir:{0} is not a readable dir".format(prospective_dir))
+from dirutils import use_directory, readable_dir
 
 
 def clone_repo(plugin):
