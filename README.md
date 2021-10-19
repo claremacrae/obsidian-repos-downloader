@@ -12,9 +12,11 @@
     * [Getting Started](#getting-started)
     * [Usage - all the arguments](#usage---all-the-arguments)
   * [Output Directories](#output-directories)
-    * [Default Structure - all repos of each type at same level](#default-structure---all-repos-of-each-type-at-same-level)
+    * [Flatter Structure](#flatter-structure)
     * [Grouped Structure - repos grouped by user name](#grouped-structure---repos-grouped-by-user-name)
   * [Likely Questions](#likely-questions)
+    * [How do I update repos I have already downloaded?](#how-do-i-update-repos-i-have-already-downloaded)
+    * [What order are plugins and themes downloaded in?](#what-order-are-plugins-and-themes-downloaded-in)
   * [Alternatives](#alternatives)<!-- endToc -->
 
 [![on-push-do-doco](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml)
@@ -105,11 +107,22 @@ optional arguments:
 
 ## Output Directories
 
-### Default Structure - all repos of each type at same level
+The script always creates a `plugins/` and `themes/` directories for its output.
+
+There are the command-line arguments to determine the structure inside those directories.
+
+### Flatter Structure
+
+By default, or when the argument `--no-group-by-user` is supplied, all the downloaded repos are placed side-by-side.
+They are prefixed with the username of the developer who wrote them.
+
+For example, running this command (limiting the output to only 4 repositories, for brevity)....
 
 ```bash
 obsidian-repos-downloader.py  --limit 4
 ```
+
+... gives this directory structure: 
 
 <!-- snippet: tree-output-ungrouped.txt -->
 <a id='snippet-tree-output-ungrouped.txt'></a>
@@ -134,9 +147,16 @@ themes
 
 ### Grouped Structure - repos grouped by user name
 
+When the argument `--group-by-user` is supplied, all the downloaded repos are placed in sub-directories
+named with the username of the developer who wrote them.
+
+For example, running this command (limiting the output to only 4 repositories, for brevity)....
+
 ```bash
 obsidian-repos-downloader.py  --limit 4 --group-by-user
 ```
+
+... gives this directory structure: 
 
 <!-- snippet: tree-output-grouped.txt -->
 <a id='snippet-tree-output-grouped.txt'></a>
@@ -164,13 +184,20 @@ themes
 
 ## Likely Questions
 
-**How do I update repos I have already downloaded?**
+### How do I update repos I have already downloaded?
 
 In this early release, there is no mechanism to update any repos that have already been downloaded.
 
 You can do this via `git pull`, although you would need to script the running of that in every plugin and theme directory.
 
 **Workaround**: delete the existing downloads, and run the script again.
+
+### What order are plugins and themes downloaded in?
+
+They are downloaded in the order they appear in the files in the [obsidianmd/obsidian-releases](https://github.com/obsidianmd/obsidian-releases) repository, which is roughly in the order they were released:
+
+- [community-css-themes.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-css-themes.json)
+- [community-plugins.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-plugins.json)
 
 ## Alternatives
 
