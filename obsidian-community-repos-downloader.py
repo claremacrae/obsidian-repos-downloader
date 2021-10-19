@@ -17,19 +17,6 @@ from utils import PLUGINS_JSON_FILE, THEMES_JSON_FILE
 from dirutils import use_directory, readable_dir
 
 
-def clone_repo(plugin):
-    repo = plugin.get("repo")
-    branch = plugin.get("branch", "master")
-    user, repo_name = repo.split("/")
-    with use_directory(user, create_if_missing=True):
-        if not os.path.isdir(repo_name):
-            print(f"cloning {repo}")
-            command = f"git clone https://github.com/{repo}.git"
-            subprocess.run(command, shell=True, check=True)
-        else:
-            print(f"{repo} already exists")
-
-
 class DownloaderOptions:
     def __init__(self):
         self.parser = self.make_parser()
@@ -76,7 +63,19 @@ class Downloader:
 
     def clone_repos(self, plugin_list):
         for plugin in plugin_list:
-            clone_repo(plugin)
+            self.clone_repo(plugin)
+
+    def clone_repo(self, plugin):
+        repo = plugin.get("repo")
+        branch = plugin.get("branch", "master")
+        user, repo_name = repo.split("/")
+        with use_directory(user, create_if_missing=True):
+            if not os.path.isdir(repo_name):
+                print(f"cloning {repo}")
+                command = f"git clone https://github.com/{repo}.git"
+                subprocess.run(command, shell=True, check=True)
+            else:
+                print(f"{repo} already exists")
 
 
 def main(argv=sys.argv[1:]):
