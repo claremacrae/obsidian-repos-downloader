@@ -35,12 +35,6 @@ def clone_repos(repo_list):
         clone_repo(plugin)
 
 
-def process_released_plugins():
-    with use_directory("plugins", create_if_missing=True):
-        plugin_list = get_json_from_github(PLUGINS_JSON_FILE)
-        clone_repos(plugin_list)
-
-
 class DownloaderOptions:
     def __init__(self):
         self.parser = self.make_parser()
@@ -75,7 +69,9 @@ class Downloader:
             self.process_released_themes()
 
     def process_released_plugins(self):
-        process_released_plugins()
+        with use_directory("plugins", create_if_missing=True):
+            plugin_list = get_json_from_github(PLUGINS_JSON_FILE)
+            clone_repos(plugin_list)
 
     def process_released_themes(self):
         print("-----\nProcessing themes....\n")
