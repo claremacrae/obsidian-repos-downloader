@@ -67,11 +67,8 @@ python3 obsidian-repos-downloader.py
 
 Running `obsidian-repos-downloader.py --help` gives this output:
 
-
-<!-- snippet: usage.txt -->
-<a id='snippet-usage.txt'></a>
 ```txt
-usage: obsidian-repos-downloader.py [-h] [-o OUTPUT_DIRECTORY] [-l LIMIT]
+usage: obsidian-repos-downloader.py [-h] [-o OUTPUT_DIRECTORY] [-l LIMIT] <!-- include: usage.txt -->
                                     [--type [{plugins,themes,all}]]
                                     [--group-by-user] [--no-group-by-user]
 
@@ -100,10 +97,8 @@ optional arguments:
                         the user name. This is the default behaviour. For
                         example, the plugin
                         "https://github.com/phibr0/obsidian-tabout" would be
-                        placed in "plugins/phibr0-obsidian-tabout"
+                        placed in "plugins/phibr0-obsidian-tabout" <!-- endInclude -->
 ```
-<sup><a href='/tests/usage.txt#L1-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage.txt' title='Start of snippet'>anchor</a></sup>
-<!-- endSnippet -->
 
 ## Output Directories
 
@@ -124,10 +119,8 @@ obsidian-repos-downloader.py  --limit 4
 
 ... gives this directory structure: 
 
-<!-- snippet: tree-output-ungrouped.txt -->
-<a id='snippet-tree-output-ungrouped.txt'></a>
 ```txt
-plugins
+plugins <!-- include: tree-output-ungrouped.txt -->
 ├── argenos-hotkeysplus-obsidian
 ├── argenos-nldates-obsidian
 ├── denolehov-obsidian-git
@@ -138,12 +131,8 @@ themes
 ├── insanum-obsidian_nord
 └── kognise-obsidian-atom
 
-8 directories
+8 directories <!-- endInclude -->
 ```
-<sup><a href='/tests/tree-output-ungrouped.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-tree-output-ungrouped.txt' title='Start of snippet'>anchor</a></sup>
-<!-- endSnippet -->
-
-
 
 ### Grouped by User name
 
@@ -158,10 +147,8 @@ obsidian-repos-downloader.py  --limit 4 --group-by-user
 
 ... gives this directory structure: 
 
-<!-- snippet: tree-output-grouped.txt -->
-<a id='snippet-tree-output-grouped.txt'></a>
 ```txt
-plugins
+plugins <!-- include: tree-output-grouped.txt -->
 ├── argenos
 │   ├── hotkeysplus-obsidian
 │   └── nldates-obsidian
@@ -177,10 +164,8 @@ themes
 └── kognise
     └── obsidian-atom
 
-13 directories
+13 directories <!-- endInclude -->
 ```
-<sup><a href='/tests/tree-output-grouped.txt#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-tree-output-grouped.txt' title='Start of snippet'>anchor</a></sup>
-<!-- endSnippet -->
 
 ## Likely Questions
 
