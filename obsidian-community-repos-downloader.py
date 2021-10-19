@@ -59,6 +59,18 @@ class DownloaderOptions:
     def root_output_directory(self):
         return self.args.output_directory
 
+
+class Downloader:
+    def __init__(self, options):
+        self.options = options
+
+    def download(self):
+        with use_directory(self.options.root_output_directory(), create_if_missing=False):
+            print(f"Working directory: {os.getcwd()}")
+            process_released_plugins()
+            process_released_themes()
+
+
 def make_arg_parser():
     parser = argparse.ArgumentParser(
         description="Clone repos included in the obsidian-releases repo, "
@@ -75,10 +87,8 @@ def main(argv=sys.argv[1:]):
     options = DownloaderOptions()
     options.parse_args(argv)
 
-    with use_directory(options.root_output_directory(), create_if_missing=False):
-        print(f"Working directory: {os.getcwd()}")
-        process_released_plugins()
-        process_released_themes()
+    downloader = Downloader(options)
+    downloader.download()
 
 
 if __name__ == "__main__":
