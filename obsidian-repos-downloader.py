@@ -113,7 +113,8 @@ class Downloader:
         print(f"-----\nProcessing {type}....\n")
         with use_directory(type, create_if_missing=True):
             plugin_list = get_json_from_github(json_file)
-            self.clone_repos(plugin_list)
+            sorted_list = sorted(plugin_list, key=lambda d: d['repo'])
+            self.clone_repos(sorted_list)
 
     def clone_repos(self, plugin_list):
         count = 0
