@@ -1,3 +1,7 @@
+# Original code copied with permission:
+#   Location: https://github.com/obsidian-community/obsidian-hub/blob/main/.github/scripts/utils.py
+#   Author: argentum (she/her)
+
 import os
 import json
 import glob
