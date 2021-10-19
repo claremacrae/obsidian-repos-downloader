@@ -54,7 +54,8 @@ def main(argv=sys.argv[1:]):
                     "to provide a body of example plugins and CSS themes."
     )
     parser.add_argument('-o', '--output_directory', default='.', type=readable_dir,
-                        help='The directory where repos will be downloaded. Must already exist.'
+                        help='The directory where repos will be downloaded. Must already exist. '
+                             'Defaults to the current working directory.'
                         )
     args = parser.parse_args(argv)
 
