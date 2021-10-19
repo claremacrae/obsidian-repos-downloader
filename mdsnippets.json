@@ -1,4 +1,4 @@
 {
   "Convention": "InPlaceOverwrite",
-  "ExcludeDirectories": [ "css-themes", "plugins" ]
+  "ExcludeDirectories": [ "themes", "plugins" ]
 }
