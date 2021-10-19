@@ -91,14 +91,14 @@ class Downloader:
     def download(self):
         with use_directory(self.options.root_output_directory(), create_if_missing=False):
             print(f"Working directory: {os.getcwd()}")
-            self.process_released_plugins(PLUGINS_JSON_FILE)
-            self.process_released_themes(THEMES_JSON_FILE)
+            self.process_released_plugins()
+            self.process_released_themes()
 
-    def process_released_plugins(self, json_file):
-        self.process_released_repos("plugins", json_file)
+    def process_released_plugins(self):
+        self.process_released_repos("plugins", PLUGINS_JSON_FILE)
 
-    def process_released_themes(self, json_file):
-        self.process_released_repos("themes", json_file)
+    def process_released_themes(self):
+        self.process_released_repos("themes", THEMES_JSON_FILE)
 
     def process_released_repos(self, type, json_file):
         if not self.options.need_to_download_type(type):
