@@ -36,7 +36,7 @@ class DownloaderOptions:
                             help='Put each repository in a sub-folder named for the GitHub user. '
                                  'For example, the plugin "https://github.com/phibr0/obsidian-tabout" would be placed '
                                  'in "plugins/phibr0/obsidian-tabout"')
-        parser.add_argument('--no-group-by-user', dest='group_by_user-by-user', action='store_false',
+        parser.add_argument('--no-group-by-user', dest='group_by_user', action='store_false',
                             help='Put each repository in the same folder, prefixed by the user name. '
                                  'This is the default behaviour. '
                                  'For example, the plugin "https://github.com/phibr0/obsidian-tabout" would be placed '
@@ -52,7 +52,10 @@ class DownloaderOptions:
         return self.args.output_directory
 
     def repo_output_directory(self, user):
-        return user
+        if self.args.group_by_user:
+            return user
+        else:
+            return '.'
 
 
 class Downloader:
@@ -78,6 +81,7 @@ class Downloader:
             self.clone_repos(theme_list)
 
     def clone_repos(self, plugin_list):
+        count = 0
         for plugin in plugin_list:
             self.clone_repo(plugin)
 
