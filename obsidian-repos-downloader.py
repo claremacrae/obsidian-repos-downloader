@@ -131,7 +131,9 @@ class Downloader:
                 print(f"{repo_output_name} already exists")
 
     def get_download_command(self, repo, user, repo_name, repo_output_name):
-        command = f"git clone https://github.com/{repo}.git {repo_output_name}"
+        url = f'https://github.com/{repo}'
+        print(url)
+        command = f"git clone {url}.git {repo_output_name}"
         return command
 
 
