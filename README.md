@@ -3,17 +3,40 @@
 <!-- toc -->
 ## Contents
 
-  * [Usage](#usage)
+  * [What?](#what)
+  * [Why?](#why)
+  * [Requirements](#requirements)
+  * [Setup](#setup)
+  * [Run](#run)
+  * [Alternatives](#alternatives)
   * [Maintenance notes](#maintenance-notes)
     * [Automated updating the table of contents](#automated-updating-the-table-of-contents)
     * [Almost-automated updating of usage](#almost-automated-updating-of-usage)<!-- endToc -->
 
-Download every approved Obsidian.md community Plugin and Theme - to read and search the source code and learn from the
-community.
-
 [![on-push-do-doco](https://github.com/claremacrae/obsidian-community-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-community-repos-downloader/actions/workflows/updateMarkdown.yml)
 
-## Usage
+## What?
+
+Clone every approved Obsidian.md community Plugin and Theme - to read and search the source code and learn from the community.
+
+This is a Python script to download a local copy of all the [published community Obsidian plugins and themes](https://github.com/obsidianmd/obsidian-releases), to be used as a large body of example code.
+
+## Why?
+
+I cannot put it better than the author of the similar project [luckman212/**obsidian-plugin-downloader**](https://github.com/luckman212/obsidian-plugin-downloader):
+
+> As an absolute beginner to TypeScript, and a lover of [Obsidian](https://obsidian.md/) I often want to take a look at how someone has achieved a certain feature, called on an API, etc. A quick way to do that is by searching through the existing codebase of the ever growing library of plugins out there.
+
+## Requirements
+
+- Python 3.6 or above
+
+## Setup
+
+1. Clone or download this repo
+2. Run the script `obsidian-community-repos-downloader.py`
+
+## Run
 
 <!-- snippet: usage.txt -->
 <a id='snippet-usage.txt'></a>
@@ -53,6 +76,16 @@ optional arguments:
 ```
 <sup><a href='/tests/usage.txt#L1-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
+## Alternatives
+
+- [konhi/**obsidian-repositories-downloader**](https://github.com/konhi/obsidian-repositories-downloader):
+    - Requires Node
+    - Downloads plugins only
+- [luckman212/**obsidian-plugin-downloader**](https://github.com/luckman212/obsidian-plugin-downloader)
+    - Written in bash, and a number of other freely-downloadable tools
+    - You use a console GUI each run, to search and control which repos to download  
+    - Downloads plugins only
 
 ---
 
