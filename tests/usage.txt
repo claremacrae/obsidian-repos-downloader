@@ -16,6 +16,7 @@ optional arguments:
                         "https://github.com/phibr0/obsidian-tabout" would be
                         placed in "plugins/phibr0/obsidian-tabout"
   --no-group-by-user    Put each repository in the same folder, prefixed by
-                        the user name. For example, the plugin
+                        the user name. This is the default behaviour. For
+                        example, the plugin
                         "https://github.com/phibr0/obsidian-tabout" would be
                         placed in "plugins/phibr0-obsidian-tabout"

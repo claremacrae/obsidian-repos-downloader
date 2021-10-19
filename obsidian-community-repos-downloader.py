@@ -38,6 +38,7 @@ class DownloaderOptions:
                                  'in "plugins/phibr0/obsidian-tabout"')
         parser.add_argument('--no-group-by-user', dest='group_by_user-by-user', action='store_false',
                             help='Put each repository in the same folder, prefixed by the user name. '
+                                 'This is the default behaviour. '
                                  'For example, the plugin "https://github.com/phibr0/obsidian-tabout" would be placed '
                                  'in "plugins/phibr0-obsidian-tabout"')
         parser.set_defaults(group_by_user=False)
