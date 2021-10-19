@@ -95,12 +95,10 @@ class Downloader:
             self.process_released_themes(THEMES_JSON_FILE)
 
     def process_released_plugins(self, json_file):
-        type = "plugins"
-        self.process_released_repos(type, json_file)
+        self.process_released_repos("plugins", json_file)
 
     def process_released_themes(self, json_file):
-        type = "themes"
-        self.process_released_repos(type, json_file)
+        self.process_released_repos("themes", json_file)
 
     def process_released_repos(self, type, json_file):
         if not self.options.need_to_download_type(type):
