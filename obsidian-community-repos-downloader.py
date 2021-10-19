@@ -35,13 +35,13 @@ def clone_repos(repo_list):
         clone_repo(plugin)
 
 
-def process_released_plugins(overwrite=False):
+def process_released_plugins():
     with use_directory("plugins", create_if_missing=True):
         plugin_list = get_json_from_github(PLUGINS_JSON_FILE)
         clone_repos(plugin_list)
 
 
-def process_released_themes(overwrite=False):
+def process_released_themes():
     print("-----\nProcessing themes....\n")
     with use_directory("css-themes", create_if_missing=True):
         theme_list = get_json_from_github(THEMES_JSON_FILE)
