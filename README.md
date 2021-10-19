@@ -6,7 +6,9 @@
   * [Usage](#usage)<!-- endToc -->
 
 Download every approved Obsidian.md community Plugin and Theme - to read and search the source code and learn from the
-community
+community.
+
+[![on-push-do-doco](https://github.com/claremacrae/obsidian-community-repositories-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-community-repositories-downloader/actions/workflows/updateMarkdown.yml)
 
 ## Usage
 
