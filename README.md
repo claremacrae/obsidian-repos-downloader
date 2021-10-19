@@ -5,9 +5,12 @@
 
   * [What?](#what)
   * [Why?](#why)
-  * [Requirements](#requirements)
   * [Setup](#setup)
+    * [Requirements](#requirements)
+    * [Download](#download)
   * [Run](#run)
+    * [Getting Started](#getting-started)
+    * [Usage - all the arguments](#usage---all-the-arguments)
   * [Likely Questions](#likely-questions)
   * [Alternatives](#alternatives)<!-- endToc -->
 
@@ -25,16 +28,40 @@ I cannot put it better than the author of the similar project [luckman212/**obsi
 
 > As an absolute beginner to TypeScript, and a lover of [Obsidian](https://obsidian.md/) I often want to take a look at how someone has achieved a certain feature, called on an API, etc. A quick way to do that is by searching through the existing codebase of the ever growing library of plugins out there.
 
-## Requirements
+## Setup
+
+### Requirements
 
 - Python 3.6 or above
 
-## Setup
+### Download
 
-1. Clone or download this repo
-2. Run the script `obsidian-repos-downloader.py`
+1. Download the [Latest Release](https://github.com/claremacrae/obsidian-repos-downloader/releases). 
+   - Choose one of:
+       - "Source code (zip)"
+       - "Source code (tar.gz)" 
+   - If you can't see them, click to expand the "Assets"
+2. Expand the downloaded Source Code file
+   - This will give you a folder name such as "obsidian-repos-downloader-0.1.0"
 
 ## Run
+
+### Getting Started
+
+The script to run is `obsidian-repos-downloader.py`
+
+Depending on your platform, here are some example ways you might need to run it:
+
+```bash
+obsidian-repos-downloader.py
+./obsidian-repos-downloader.py
+python3 obsidian-repos-downloader.py
+```
+
+### Usage - all the arguments
+
+Running `obsidian-repos-downloader.py --help` gives this output:
+
 
 <!-- snippet: usage.txt -->
 <a id='snippet-usage.txt'></a>
@@ -84,6 +111,8 @@ You can do this via `git pull`, although you would need to script the running of
 **Workaround**: delete the existing downloads, and run the script again.
 
 ## Alternatives
+
+There is a growing number of alternative mechanisms for downloading Obsidian repos:
 
 - [konhi/**obsidian-repositories-downloader**](https://github.com/konhi/obsidian-repositories-downloader):
     - Requires Node
