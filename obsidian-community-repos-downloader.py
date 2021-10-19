@@ -48,6 +48,17 @@ def process_released_themes(overwrite=False):
         clone_repos(theme_list)
 
 
+class DownloaderOptions:
+    def __init__(self):
+        self.parser = make_arg_parser()
+        self.args = None
+
+    def parse_args(self, argv):
+        self.args = self.parser.parse_args(argv)
+
+    def root_output_directory(self):
+        return self.args.output_directory
+
 def make_arg_parser():
     parser = argparse.ArgumentParser(
         description="Clone repos included in the obsidian-releases repo, "
@@ -61,10 +72,10 @@ def make_arg_parser():
 
 
 def main(argv=sys.argv[1:]):
-    parser = make_arg_parser()
-    args = parser.parse_args(argv)
+    options = DownloaderOptions()
+    options.parse_args(argv)
 
-    with use_directory(args.output_directory, create_if_missing=False):
+    with use_directory(options.root_output_directory(), create_if_missing=False):
         print(f"Working directory: {os.getcwd()}")
         process_released_plugins()
         process_released_themes()
