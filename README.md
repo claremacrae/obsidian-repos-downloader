@@ -3,7 +3,10 @@
 <!-- toc -->
 ## Contents
 
-  * [Usage](#usage)<!-- endToc -->
+  * [Usage](#usage)
+  * [Maintenance notes](#maintenance-notes)
+    * [Automated updating the table of contents](#automated-updating-the-table-of-contents)
+    * [Almost-automated updating of usage](#almost-automated-updating-of-usage)<!-- endToc -->
 
 Download every approved Obsidian.md community Plugin and Theme - to read and search the source code and learn from the
 community.
@@ -29,3 +32,25 @@ optional arguments:
 ```
 <sup><a href='/tests/usage.txt#L1-L11' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
+---
+
+## Maintenance notes
+
+### Automated updating the table of contents
+
+The table of contents is updated automatically by a GitHub Action, on every push to GitHub.
+
+### Almost-automated updating of usage 
+
+The above usage is updated automatically, on push, whenever `tests/usage.txt` is changed.
+
+To update `tests/usage.txt:
+
+```bash
+# 1. Update tests/usage.txt
+cd tests
+./update_usage.sh
+# 2. Commit update usage.txt
+# 3. Push to github - a GitHub Action will then update the usage text in this README
+```
