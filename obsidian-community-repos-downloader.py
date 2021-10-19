@@ -66,10 +66,14 @@ class DownloaderOptions:
         return self.args.limit
 
     def need_to_download_plugins(self):
-        return self.args.type in ["all", "plugins"]
+        type = "plugins"
+        return self.need_to_download_type(type)
 
     def need_to_download_themes(self):
         return self.args.type in ["all", "themes"]
+
+    def need_to_download_type(self, type):
+        return self.args.type in ["all", type]
 
     def root_output_directory(self):
         return self.args.output_directory
