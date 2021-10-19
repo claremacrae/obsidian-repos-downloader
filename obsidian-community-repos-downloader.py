@@ -48,7 +48,7 @@ def process_released_themes(overwrite=False):
         clone_repos(theme_list)
 
 
-def main(argv=sys.argv[1:]):
+def make_arg_parser():
     parser = argparse.ArgumentParser(
         description="Clone repos included in the obsidian-releases repo, "
                     "to provide a body of example plugins and CSS themes."
@@ -57,6 +57,11 @@ def main(argv=sys.argv[1:]):
                         help='The directory where repos will be downloaded. Must already exist. '
                              'Defaults to the current working directory.'
                         )
+    return parser
+
+
+def main(argv=sys.argv[1:]):
+    parser = make_arg_parser()
     args = parser.parse_args(argv)
 
     with use_directory(args.output_directory, create_if_missing=False):
