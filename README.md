@@ -8,6 +8,7 @@
   * [Requirements](#requirements)
   * [Setup](#setup)
   * [Run](#run)
+  * [Likely Questions](#likely-questions)
   * [Alternatives](#alternatives)<!-- endToc -->
 
 [![on-push-do-doco](https://github.com/claremacrae/obsidian-community-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-community-repos-downloader/actions/workflows/updateMarkdown.yml)
@@ -73,6 +74,16 @@ optional arguments:
 ```
 <sup><a href='/tests/usage.txt#L1-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
+## Likely Questions
+
+**How do I update repos I have already downloaded?**
+
+In this early release, there is no mechanism to update any repos that have already been downloaded.
+
+You can do this via `git pull`, although you would need to script the running of that in every plugin and theme directory.
+
+**Workaround**: delete the existing downloads, and run the script again.
 
 ## Alternatives
 
