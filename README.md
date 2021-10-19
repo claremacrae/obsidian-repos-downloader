@@ -69,7 +69,6 @@ Running `obsidian-repos-downloader.py --help` gives this output:
 
 
 <!-- snippet: usage.txt -->
-<a id='snippet-usage.txt'></a>
 ```txt
 usage: obsidian-repos-downloader.py [-h] [-o OUTPUT_DIRECTORY] [-l LIMIT]
                                     [--type [{plugins,themes,all}]]
@@ -102,7 +101,6 @@ optional arguments:
                         "https://github.com/phibr0/obsidian-tabout" would be
                         placed in "plugins/phibr0-obsidian-tabout"
 ```
-<sup><a href='/tests/usage.txt#L1-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ## Output Directories
@@ -125,7 +123,6 @@ obsidian-repos-downloader.py  --limit 4
 ... gives this directory structure: 
 
 <!-- snippet: tree-output-ungrouped.txt -->
-<a id='snippet-tree-output-ungrouped.txt'></a>
 ```txt
 plugins
 ├── argenos-hotkeysplus-obsidian
@@ -140,7 +137,6 @@ themes
 
 8 directories
 ```
-<sup><a href='/tests/tree-output-ungrouped.txt#L1-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-tree-output-ungrouped.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -159,7 +155,6 @@ obsidian-repos-downloader.py  --limit 4 --group-by-user
 ... gives this directory structure: 
 
 <!-- snippet: tree-output-grouped.txt -->
-<a id='snippet-tree-output-grouped.txt'></a>
 ```txt
 plugins
 ├── argenos
@@ -179,7 +174,6 @@ themes
 
 13 directories
 ```
-<sup><a href='/tests/tree-output-grouped.txt#L1-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-tree-output-grouped.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ## Likely Questions
