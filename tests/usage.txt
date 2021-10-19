@@ -1,8 +1,6 @@
-usage: obsidian-community-repos-downloader.py [-h] [-o OUTPUT_DIRECTORY]
-                                              [-l LIMIT]
-                                              [--type [{plugins,themes,all}]]
-                                              [--group-by-user]
-                                              [--no-group-by-user]
+usage: obsidian-repos-downloader.py [-h] [-o OUTPUT_DIRECTORY] [-l LIMIT]
+                                    [--type [{plugins,themes,all}]]
+                                    [--group-by-user] [--no-group-by-user]
 
 Clone repos included in the obsidian-releases repo, to provide a body of
 example plugins and CSS themes.

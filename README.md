@@ -39,11 +39,9 @@ I cannot put it better than the author of the similar project [luckman212/**obsi
 <!-- snippet: usage.txt -->
 <a id='snippet-usage.txt'></a>
 ```txt
-usage: obsidian-community-repos-downloader.py [-h] [-o OUTPUT_DIRECTORY]
-                                              [-l LIMIT]
-                                              [--type [{plugins,themes,all}]]
-                                              [--group-by-user]
-                                              [--no-group-by-user]
+usage: obsidian-repos-downloader.py [-h] [-o OUTPUT_DIRECTORY] [-l LIMIT]
+                                    [--type [{plugins,themes,all}]]
+                                    [--group-by-user] [--no-group-by-user]
 
 Clone repos included in the obsidian-releases repo, to provide a body of
 example plugins and CSS themes.
@@ -72,7 +70,7 @@ optional arguments:
                         "https://github.com/phibr0/obsidian-tabout" would be
                         placed in "plugins/phibr0-obsidian-tabout"
 ```
-<sup><a href='/tests/usage.txt#L1-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage.txt' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/usage.txt#L1-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-usage.txt' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ## Likely Questions
