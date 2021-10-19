@@ -96,9 +96,6 @@ class Downloader:
 
     def process_released_plugins(self, json_file):
         type = "plugins"
-        if not self.options.need_to_download_type(type):
-            return
-
         self.process_released_repos(type, json_file)
 
     def process_released_themes(self, json_file):
@@ -112,6 +109,9 @@ class Downloader:
             self.clone_repos(theme_list)
 
     def process_released_repos(self, type, json_file):
+        if not self.options.need_to_download_type(type):
+            return
+
         print(f"-----\nProcessing {type}....\n")
         with use_directory(type, create_if_missing=True):
             plugin_list = get_json_from_github(json_file)
