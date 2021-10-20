@@ -138,7 +138,7 @@ class Downloader:
                 self.run_or_log("cloning", command, repo)
             else:
                 with use_directory(repo_output_name, create_if_missing=False):
-                    command = 'git pull'
+                    command = self.get_clone_command()
                     self.run_or_log(f"updating", command, repo)
 
     def run_or_log(self, verb, command, repo):
@@ -155,6 +155,10 @@ class Downloader:
         url = f'https://github.com/{repo}'
         print(url)
         command = f"git clone --quiet {url}.git {repo_output_name}"
+        return command
+
+    def get_clone_command(self):
+        command = 'git pull --quiet'
         return command
 
 
