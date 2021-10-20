@@ -135,14 +135,16 @@ class Downloader:
             repo_output_name = self.options.repo_output_name(user, repo_name)
             if not os.path.isdir(repo_output_name):
                 command = self.get_download_command(repo, repo_output_name)
-                verb = "cloning"
-                if self.options.dry_run():
-                    self.log_dry_run(command)
-                else:
-                    print(f"{verb} {repo}")
-                    subprocess.run(command, shell=True, check=True)
+                self.run_or_log("cloning", command, repo)
             else:
                 print(f"{repo_output_name} already exists")
+
+    def run_or_log(self, verb, command, repo):
+        if self.options.dry_run():
+            self.log_dry_run(command)
+        else:
+            print(f"{verb} {repo}")
+            subprocess.run(command, shell=True, check=True)
 
     def log_dry_run(self, command):
         print(f'Dry run mode: {command}')
