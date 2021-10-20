@@ -137,13 +137,15 @@ class Downloader:
                 command = self.get_download_command(repo, repo_output_name)
                 self.run_or_log("cloning", command, repo)
             else:
-                print(f"{repo_output_name} already exists")
+                with use_directory(repo_output_name, create_if_missing=False):
+                    command = 'git pull'
+                    self.run_or_log(f"updating", command, repo)
 
     def run_or_log(self, verb, command, repo):
+        print(f"{verb} {repo}")
         if self.options.dry_run():
             self.log_dry_run(command)
         else:
-            print(f"{verb} {repo}")
             subprocess.run(command, shell=True, check=True)
 
     def log_dry_run(self, command):
