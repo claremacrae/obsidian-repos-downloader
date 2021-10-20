@@ -190,11 +190,7 @@ themes
 
 ### How do I update repos I have already downloaded?
 
-In this early release, there is no mechanism to update any repos that have already been downloaded.
-
-You can do this via `git pull`, although you would need to script the running of that in every plugin and theme directory.
-
-**Workaround**: delete the existing downloads, and run the script again.
+This is now done automatically, via `git pull`, for repos that have already been cloned.
 
 ### What order are plugins and themes downloaded in?
 
