@@ -23,9 +23,9 @@
 
 ## What?
 
-Clone every approved Obsidian.md community Plugin and Theme - to read and search the source code and learn from the community.
+Clone every approved Obsidian.md community Plugin, Snippet and Theme - to read and search the source code and learn from the community.
 
-This is a Python3 script to download a local copy of all the [published community Obsidian plugins and themes](https://github.com/obsidianmd/obsidian-releases), to be used as a large body of example code.
+This is a Python3 script to download a local copy of all the [published community Obsidian plugins, snippets and themes](https://github.com/obsidianmd/obsidian-releases), to be used as a large body of example code.
 
 It inspects these files, and then downloads (clones) all the repos listed in them:
 
@@ -116,7 +116,7 @@ optional arguments:
 
 ## Output Directories
 
-The script always creates a `plugins/` and `themes/` directories for its output.
+The script always creates a `plugins/`, `snippets/` and `themes/` directories for its output.
 
 There are the command-line arguments to determine the structure inside those directories.
 
