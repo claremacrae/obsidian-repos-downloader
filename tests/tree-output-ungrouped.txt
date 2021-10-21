@@ -3,10 +3,12 @@ plugins
 ├── aidenlx-alx-folder-note
 ├── aidenlx-better-fn
 └── aidenlx-cm-chs-patch
+snippets
+└── ericaxu-test-snippets
 themes
 ├── ArtexJay-Obsidian-CyberGlow
 ├── auroral-ui-aurora-obsidian-md
 ├── bcdavasconcelos-Obsidian-Ayu
 └── bcdavasconcelos-Obsidian-Ayu_Mirage
 
-8 directories
+9 directories

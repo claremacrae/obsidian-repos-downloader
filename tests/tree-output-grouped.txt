@@ -5,6 +5,9 @@ plugins
     ├── alx-folder-note
     ├── better-fn
     └── cm-chs-patch
+snippets
+└── ericaxu
+    └── test-snippets
 themes
 ├── ArtexJay
 │   └── Obsidian-CyberGlow
@@ -14,4 +17,4 @@ themes
     ├── Obsidian-Ayu
     └── Obsidian-Ayu_Mirage
 
-13 directories
+15 directories
