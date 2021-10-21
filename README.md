@@ -31,7 +31,7 @@ It inspects these files, and then downloads (clones) all the repos listed in the
 
 - [community-css-themes.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-css-themes.json)
 - [community-plugins.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-plugins.json)
-
+- [community-snippets.json](https://github.com/obsidianmd/obsidian-releases/blob/master/community-snippets.json)
 
 ## Why?
 
