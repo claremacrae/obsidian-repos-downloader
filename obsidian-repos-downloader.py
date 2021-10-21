@@ -8,7 +8,7 @@ import subprocess
 from utils import (
     get_json_from_github
 )
-from utils import PLUGINS_JSON_FILE, THEMES_JSON_FILE
+from utils import PLUGINS_JSON_FILE, THEMES_JSON_FILE, SNIPPETS_JSON_FILE
 from dirutils import use_directory, readable_dir
 
 
@@ -20,7 +20,7 @@ class DownloaderOptions:
     def make_parser(self):
         parser = argparse.ArgumentParser(
             description="Clone repos included in the obsidian-releases repo, "
-                        "to provide a body of example plugins and CSS themes."
+                        "to provide a body of example plugins, CSS themes and snippets."
         )
         parser.add_argument('-o', '--output_directory', default='.', type=readable_dir,
                             help='The directory where repos will be downloaded. Must already exist. '
@@ -28,7 +28,7 @@ class DownloaderOptions:
                             )
 
         parser.add_argument('-l', '--limit', type=int, default=0,
-                            help='Limit the number of plugin and theme repos that will be downloaded. '
+                            help='Limit the number of plugin, theme and snippet repos that will be downloaded. '
                                  'This is useful when testing the script. '
                                  '0 (zero) means "no limit". '
                                  'Note: the count currently includes any repos already downloaded.'
@@ -44,8 +44,8 @@ class DownloaderOptions:
                             default='all',
                             const='all',
                             nargs='?',
-                            choices=['plugins', 'themes', 'all'],
-                            help='The type of repositories to download: plugins, themes or both. '
+                            choices=['plugins', 'themes', 'snippets', 'all'],
+                            help='The type of repositories to download: plugins, themes, snippets or all. '
                                  '(default: %(default)s)')
 
         parser.add_argument('--group-by-user', dest='group_by_user', action='store_true',
@@ -99,12 +99,16 @@ class Downloader:
             print(f"Working directory: {os.getcwd()}")
             self.process_released_plugins()
             self.process_released_themes()
+            self.process_released_snippets()
 
     def process_released_plugins(self):
         self.process_released_repos("plugins", PLUGINS_JSON_FILE)
 
     def process_released_themes(self):
         self.process_released_repos("themes", THEMES_JSON_FILE)
+
+    def process_released_snippets(self):
+        self.process_released_repos("snippets", SNIPPETS_JSON_FILE)
 
     def process_released_repos(self, type, json_file):
         if not self.options.need_to_download_type(type):

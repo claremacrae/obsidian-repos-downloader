@@ -9,6 +9,7 @@ from urllib.request import urlopen
 PLUGIN_MANIFEST = "https://raw.githubusercontent.com/{}/{}/manifest.json"
 PLUGINS_JSON_FILE = "https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-plugins.json"
 THEMES_JSON_FILE = "https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-css-themes.json"
+SNIPPETS_JSON_FILE = "https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-snippets.json"
 
 
 def get_json_from_github(url):
