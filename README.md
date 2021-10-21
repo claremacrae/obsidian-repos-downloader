@@ -16,7 +16,7 @@
     * [Grouped by User name](#grouped-by-user-name)
   * [Likely Questions](#likely-questions)
     * [How do I update repos I have already downloaded?](#how-do-i-update-repos-i-have-already-downloaded)
-    * [What order are plugins and themes downloaded in?](#what-order-are-plugins-and-themes-downloaded-in)
+    * [What order are repos downloaded in?](#what-order-are-repos-downloaded-in)
   * [Alternatives](#alternatives)<!-- endToc -->
 
 [![on-push-do-doco](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml)
@@ -77,11 +77,11 @@ Running `obsidian-repos-downloader.py --help` gives this output:
 <!-- snippet: usage.txt -->
 ```txt
 usage: obsidian-repos-downloader.py [-h] [-o OUTPUT_DIRECTORY] [-l LIMIT] [-n]
-                                    [-t [{plugins,themes,all}]]
+                                    [-t [{plugins,themes,snippets,all}]]
                                     [--group-by-user] [--no-group-by-user]
 
 Clone repos included in the obsidian-releases repo, to provide a body of
-example plugins and CSS themes.
+example plugins, CSS themes and snippets.
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -90,17 +90,18 @@ optional arguments:
                         already exist. (default: . which means "current
                         working directory")
   -l LIMIT, --limit LIMIT
-                        Limit the number of plugin and theme repos that will
-                        be downloaded. This is useful when testing the script.
-                        0 (zero) means "no limit". Note: the count currently
-                        includes any repos already downloaded.(default: 0)
+                        Limit the number of plugin, theme and snippet repos
+                        that will be downloaded. This is useful when testing
+                        the script. 0 (zero) means "no limit". Note: the count
+                        currently includes any repos already
+                        downloaded.(default: 0)
   -n, --dry-run         Print out the commands to be executed, but do no run
                         them. This is useful for testing. Note: it does not
                         print the directory-creation commands, just the git
                         ones
-  -t [{plugins,themes,all}], --type [{plugins,themes,all}]
-                        The type of repositories to download: plugins, themes
-                        or both. (default: all)
+  -t [{plugins,themes,snippets,all}], --type [{plugins,themes,snippets,all}]
+                        The type of repositories to download: plugins, themes,
+                        snippets or all. (default: all)
   --group-by-user       Put each repository in a sub-folder named for the
                         GitHub user. For example, the plugin
                         "https://github.com/phibr0/obsidian-tabout" would be
@@ -139,13 +140,15 @@ plugins
 ├── aidenlx-alx-folder-note
 ├── aidenlx-better-fn
 └── aidenlx-cm-chs-patch
+snippets
+└── ericaxu-test-snippets
 themes
 ├── ArtexJay-Obsidian-CyberGlow
 ├── auroral-ui-aurora-obsidian-md
 ├── bcdavasconcelos-Obsidian-Ayu
 └── bcdavasconcelos-Obsidian-Ayu_Mirage
 
-8 directories
+9 directories
 ```
 <!-- endSnippet -->
 
@@ -173,6 +176,9 @@ plugins
     ├── alx-folder-note
     ├── better-fn
     └── cm-chs-patch
+snippets
+└── ericaxu
+    └── test-snippets
 themes
 ├── ArtexJay
 │   └── Obsidian-CyberGlow
@@ -182,7 +188,7 @@ themes
     ├── Obsidian-Ayu
     └── Obsidian-Ayu_Mirage
 
-13 directories
+15 directories
 ```
 <!-- endSnippet -->
 
@@ -192,7 +198,7 @@ themes
 
 This is now done automatically, via `git pull`, for repos that have already been cloned.
 
-### What order are plugins and themes downloaded in?
+### What order are repos downloaded in?
 
 They are downloaded in case-insensitive alphabetical order of the repository's GitHub URL, so effectively in order
 of user name and then repo name.
