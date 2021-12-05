@@ -17,6 +17,7 @@
   * [Likely Questions](#likely-questions)
     * [How do I update repos I have already downloaded?](#how-do-i-update-repos-i-have-already-downloaded)
     * [What order are plugins and themes downloaded in?](#what-order-are-plugins-and-themes-downloaded-in)
+    * [What if there is an error?](#what-if-there-is-an-error)
   * [Alternatives](#alternatives)<!-- endToc -->
 
 [![on-push-do-doco](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml/badge.svg)](https://github.com/claremacrae/obsidian-repos-downloader/actions/workflows/updateMarkdown.yml)
