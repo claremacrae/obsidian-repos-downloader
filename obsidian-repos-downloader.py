@@ -93,12 +93,15 @@ class DownloaderOptions:
 class Downloader:
     def __init__(self, options):
         self.options = options
+        self.errors = ""
 
     def download(self):
         with use_directory(self.options.root_output_directory(), create_if_missing=False):
             print(f"Working directory: {os.getcwd()}")
             self.process_released_plugins()
             self.process_released_themes()
+
+        self.print_any_errors()
 
     def process_released_plugins(self):
         self.process_released_repos("plugins", PLUGINS_JSON_FILE)
@@ -142,11 +145,14 @@ class Downloader:
                     self.run_or_log(f"updating", command, repo)
 
     def run_or_log(self, verb, command, repo):
-        print(f"{verb} {repo}")
+        message = f"{verb} {repo}"
+        print(message)
         if self.options.dry_run():
             self.log_dry_run(command)
         else:
-            subprocess.run(command, shell=True, check=True)
+            result = subprocess.run(command, shell=True, check=False, capture_output=True, text=True)
+            if result.returncode != 0:
+                self.log_error(result, message, command)
 
     def log_dry_run(self, command):
         print(f'Dry run mode: {command}')
@@ -160,6 +166,23 @@ class Downloader:
     def get_clone_command(self):
         command = 'git pull --quiet'
         return command
+
+    def log_error(self, result, message2, command):
+        message = f"""{message2}
+command:    {command}
+in:         {os.getcwd()}
+exit code:  {result.returncode}
+stdout:     {result.stdout}
+stderr:     {result.stderr}
+'--------------------------------'
+"""
+        print(message)
+        self.errors += message
+
+    def print_any_errors(self):
+        if self.errors != "":
+            print("The following errors occurred:")
+            print(self.errors)
 
 
 def download_repos(argv=sys.argv[1:]):
