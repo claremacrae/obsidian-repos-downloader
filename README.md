@@ -197,6 +197,29 @@ This is now done automatically, via `git pull`, for repos that have already been
 They are downloaded in case-insensitive alphabetical order of the repository's GitHub URL, so effectively in order
 of user name and then repo name.
 
+### What if there is an error?
+
+Sometimes it is not possible to update a repo, for example of there are edited files on the local machine, or the name of the remote branch has changed (such as from 'master' to 'main').
+
+The script accumulates a list of errors, and prints them on completion.
+
+The easiest way to deal with such errors is to delete the downloaded repo, and run the script again.
+
+Example error output:
+
+```
+The following errors occurred:
+updating Slowbad/obsidian-solarized
+command:    git pull --quiet
+in:         /Users/clare/obsidian-repos-downloader/themes/Slowbad-obsidian-solarized
+exit code:  1
+stdout:     
+stderr:     Your configuration specifies to merge with the ref 'refs/heads/master'
+from the remote, but no such ref was fetched.
+
+-------------------------------------------------------------------------------
+```
+
 ## Alternatives
 
 There is a growing number of alternative mechanisms for downloading Obsidian repos:
