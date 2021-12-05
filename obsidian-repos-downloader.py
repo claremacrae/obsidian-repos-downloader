@@ -114,19 +114,19 @@ class Downloader:
         with use_directory(type, create_if_missing=True):
             plugin_list = get_json_from_github(json_file)
             sorted_list = sorted(plugin_list, key=lambda d: d['repo'].lower())
-            self.clone_repos(sorted_list)
+            self.clone_or_update_repos(sorted_list)
 
-    def clone_repos(self, plugin_list):
+    def clone_or_update_repos(self, plugin_list):
         count = 0
         limit = self.options.limit()
         for plugin in plugin_list:
-            self.clone_repo(plugin)
+            self.clone_or_update_repo(plugin)
             count += 1
             if limit > 0 and count >= limit:
                 print("Maximum number of new repos exceeded. Stopping.")
                 return
 
-    def clone_repo(self, plugin):
+    def clone_or_update_repo(self, plugin):
         repo = plugin.get("repo")
         branch = plugin.get("branch", "master")
         user, repo_name = repo.split("/")
