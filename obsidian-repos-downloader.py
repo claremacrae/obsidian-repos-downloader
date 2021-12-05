@@ -177,7 +177,7 @@ in:         {os.getcwd()}
 exit code:  {result.returncode}
 stdout:     {result.stdout}
 stderr:     {result.stderr}
-'--------------------------------'
+-------------------------------------------------------------------------------
 """
         print(message)
         self.errors += message
