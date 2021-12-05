@@ -133,6 +133,9 @@ class Downloader:
         repo = plugin.get("repo")
         branch = plugin.get("branch", "master")
         user, repo_name = repo.split("/")
+        # if user != 'Slowbad':
+        #     print('Skipping user')
+        #     return
         directory_for_repo = self.options.repo_output_directory(user)
         with use_directory(directory_for_repo, create_if_missing=True):
             repo_output_name = self.options.repo_output_name(user, repo_name)
